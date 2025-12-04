@@ -21,10 +21,10 @@ Products are fetched from an external API and dispalyed as responsive cards
 Real-time product filtering by name without page reloads
 - Dynamic product pages - 
 Each product has its own page with: 
-  Image
-  Title
-  Category
-  Price
+  Image, 
+  Title, 
+  Category, 
+  Price, 
   Description
 - Pagination - 
 Includes page navigation with a selectable number of products per page
