@@ -86,7 +86,7 @@ const ProductsCatalog = ({products}: ProductsFilterProps) => {
                 <div>
                     <Select onValueChange={onSelectChange}>
                         <SelectTrigger className="w-full lg:w-48">
-                            <SelectValue placeholder="8 Items per page"/>
+                            <SelectValue placeholder="Items per page"/>
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="4">4</SelectItem>
