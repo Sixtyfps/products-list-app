@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Product page",
+  title: "Products list",
   description: "List of products",
 };
 

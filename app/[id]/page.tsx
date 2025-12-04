@@ -1,11 +1,11 @@
-import { getProduct } from "@/server/product";
-import { Product } from "@/components/shared/types";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {getProduct} from "@/server/product";
+import {Product} from "@/components/shared/types";
+import {Card, CardContent, CardHeader, CardTitle, CardDescription} from "@/components/ui/card";
 import Image from "next/image";
 import {Badge} from "@/components/ui/badge";
 
 export default async function ProductPage({ params }: { params: { id: string } }) {
-    const { id } = await params;
+    const {id} = await params;
     const product: Product = await getProduct(Number(id));
 
     return (
@@ -21,13 +21,13 @@ export default async function ProductPage({ params }: { params: { id: string } }
                     />
                 </div>
                 <CardContent className="md:w-1/2 flex flex-col justify-between">
-                    <CardHeader>
+                    <CardHeader className="p-0">
                         <CardTitle className="text-2xl md:text-3xl">{product.title}</CardTitle>
                         <Badge className="mt-2">{product.category}</Badge>
                     </CardHeader>
                     <div className="mt-4 space-y-4">
                         <p className="text-lg font-semibold">€{product.price.toFixed(2)}</p>
-                        <p>{product.description}</p>
+                        <CardDescription>{product.description}</CardDescription>
                     </div>
                 </CardContent>
             </Card>

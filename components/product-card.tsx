@@ -13,7 +13,6 @@ type ProductCardProps = {
 const ProductCard = ({product}: ProductCardProps) => {
     return (
         <Link href={`/${product.id}`}>
-
             <Card key={product.id} className="p-3 h-full flex flex-col">
                 <CardHeader className="relative">
                     <Badge className="absolute top-0 left-2">{product.category}</Badge>
@@ -33,9 +32,7 @@ const ProductCard = ({product}: ProductCardProps) => {
                     <Button className="w-full cursor-pointer">Buy<ShoppingCart/></Button>
                 </CardFooter>
             </Card>
-
         </Link>
-
     );
 };
 

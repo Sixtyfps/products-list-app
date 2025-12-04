@@ -24,19 +24,17 @@ type ProductsFilterProps = {
     products: Product[];
 };
 
-const ProductsFilter = ({products}: ProductsFilterProps) => {
-    //Filtering state
+const ProductsCatalog = ({products}: ProductsFilterProps) => {
+    const defaultProductsPerPage = 8;
+
     const [search, setSearch] = useState("");
     const [filteredProducts, setFilteredProducts] = useState(products);
-    //Pagination state
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(8);
-    //Pagination logic
+    const [itemsPerPage, setItemsPerPage] = useState(defaultProductsPerPage);
     const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentProducts = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
-
 
     const onPageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
@@ -49,7 +47,6 @@ const ProductsFilter = ({products}: ProductsFilterProps) => {
         setCurrentPage(1);
     }
 
-    //Filtration with debounce
     useEffect(() => {
         const handler = setTimeout(() => {
             if (!search) {
@@ -61,7 +58,6 @@ const ProductsFilter = ({products}: ProductsFilterProps) => {
                     )
                 );
             }
-            //Reset the page during the new search
             setCurrentPage(1);
         }, 500);
         return () => clearTimeout(handler);
@@ -77,7 +73,7 @@ const ProductsFilter = ({products}: ProductsFilterProps) => {
             />
 
             {currentProducts.length === 0 ? (
-                <p className="text-center text-lg text-muted-foreground">Nothing found</p>
+                <p className="text-center text-lg text-muted-foreground">No results found</p>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     {currentProducts.map((product) => (
@@ -88,46 +84,39 @@ const ProductsFilter = ({products}: ProductsFilterProps) => {
 
             {totalPages > 1 && (
                 <div>
-                    <div>
-                        <Select
-                            onValueChange={onSelectChange}
-                        >
-                            <SelectTrigger className="w-[180px]">
-                                <SelectValue placeholder="8 Items per page"/>
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="4">4</SelectItem>
-                                <SelectItem value="8">8</SelectItem>
-                                <SelectItem value="12">12</SelectItem>
-                                <SelectItem value="16">16</SelectItem>
-                            </SelectContent>
-                        </Select>
-                    </div>
-                    <div>
-                        <Pagination className="mt-4">
-                            <PaginationPrevious className="cursor-pointer"
-                                                onClick={() => onPageChange(currentPage - 1)}/>
-                            <PaginationContent>
-                                {Array.from({length: totalPages}, (_, i) => i + 1).map((page) => (
-                                    <PaginationItem className="cursor-pointer" key={page}>
-                                        <PaginationLink
-                                            isActive={page === currentPage}
-                                            onClick={() => onPageChange(page)}
-                                        >
-                                            {page}
-                                        </PaginationLink>
-                                    </PaginationItem>
-                                ))}
-                            </PaginationContent>
-                            <PaginationNext className="cursor-pointer" onClick={() => onPageChange(currentPage + 1)}/>
-                        </Pagination>
-                    </div>
+                    <Select onValueChange={onSelectChange}>
+                        <SelectTrigger className="w-full lg:w-48">
+                            <SelectValue placeholder="8 Items per page"/>
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="4">4</SelectItem>
+                            <SelectItem value="8">8</SelectItem>
+                            <SelectItem value="12">12</SelectItem>
+                            <SelectItem value="16">16</SelectItem>
+                        </SelectContent>
+                    </Select>
+
+                    <Pagination className="mt-4">
+                        <PaginationPrevious className="cursor-pointer"
+                                            onClick={() => onPageChange(currentPage - 1)}/>
+                        <PaginationContent>
+                            {Array.from({length: totalPages}, (_, i) => i + 1).map((page) => (
+                                <PaginationItem className="cursor-pointer" key={page}>
+                                    <PaginationLink
+                                        isActive={page === currentPage}
+                                        onClick={() => onPageChange(page)}
+                                    >
+                                        {page}
+                                    </PaginationLink>
+                                </PaginationItem>
+                            ))}
+                        </PaginationContent>
+                        <PaginationNext className="cursor-pointer" onClick={() => onPageChange(currentPage + 1)}/>
+                    </Pagination>
                 </div>
-
-
             )}
         </div>
     );
 };
 
-export default ProductsFilter;
+export default ProductsCatalog;

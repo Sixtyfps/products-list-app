@@ -1,5 +1,5 @@
 import {getProducts} from "@/server/products";
-import ProductsFilter from "@/components/ui/products-filter";
+import ProductsCatalog from "@/components/ui/products-catalog";
 
 export default async function Home() {
 
@@ -7,7 +7,7 @@ export default async function Home() {
     return (
         <main className="pt-5 py-5 flex flex-col gap-5 justify-center max-w-6xl mx-auto">
             <h1 className="flex justify-center font-bold">Products List</h1>
-            <ProductsFilter products={products}/>
+            <ProductsCatalog products={products}/>
         </main>
     );
 }
