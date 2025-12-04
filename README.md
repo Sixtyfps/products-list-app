@@ -1,15 +1,20 @@
 🛍️ Products list SPA
+
 This project is a SPA built with Next.js and TypeScript, styled using Tailwind CSS and powered by UI components from shadcn.
 It demonstrates a modern approach to building a responsive product catalog with dynamic routing, filtering by product name and pagination.
 
+
 🚀 Technology stack
+
 - Next.js
 - TypeScript
 - Tailwind CSS
 - shadcn
 - Fakestore API
 
+
 📦 Features
+
 - Product catalog
 Products are fetched from an external API and dispalyed as responsive cards
 - Client-side search
