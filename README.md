@@ -1,4 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🛍️ Products list SPA
+
+This project is a SPA built with Next.js and TypeScript, styled using Tailwind CSS and powered by UI components from shadcn.
+It demonstrates a modern approach to building a responsive product catalog with dynamic routing, filtering by product name and pagination.
+
+
+🚀 Technology stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- shadcn
+- Fakestore API
+
+
+📦 Features
+
+- Product catalog - 
+Products are fetched from an external API and dispalyed as responsive cards
+- Client-side search - 
+Real-time product filtering by name without page reloads
+- Dynamic product pages - 
+Each product has its own page with: 
+  Image, 
+  Title, 
+  Category, 
+  Price, 
+  Description
+- Pagination - 
+Includes page navigation with a selectable number of products per page
+- Responsive design - 
+Works seamlessly on mobile, tablet and desktop screens
+- Testing ready - 
+The project is configured for writing unit and UI tests using Jest and @testing-library/react
+
+
+
 
 ## Getting Started
 
@@ -15,22 +51,3 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
