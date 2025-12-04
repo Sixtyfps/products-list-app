@@ -31,7 +31,7 @@ Includes page navigation with a selectable number of products per page
 - Responsive design - 
 Works seamlessly on mobile, tablet and desktop screens
 - Testing ready - 
-The project is configured for writing unit and UI tests using Jest/@testing-library/react
+The project is configured for writing unit and UI tests using Jest and @testing-library/react
 
 
 
