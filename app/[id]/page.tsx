@@ -8,6 +8,11 @@ export default async function ProductPage({ params }: { params: { id: string } }
     const {id} = await params;
     const product: Product = await getProduct(Number(id));
 
+    if (!product) {
+        return <p>Could not load product data. Please try again later.</p>
+
+    }
+
     return (
         <div className="max-w-4xl mx-auto px-4 py-8">
             <Card className="flex flex-col md:flex-row gap-6">
