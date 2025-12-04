@@ -9,8 +9,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
     const product: Product = await getProduct(Number(id));
 
     if (!product) {
-        return<p>Could not load product data. Please try again later.</p>
-
+        return <p> Could not load product data. Please try again later </p>
     }
 
     return (
