@@ -4,7 +4,7 @@ import {Card, CardContent, CardHeader, CardTitle, CardDescription} from "@/compo
 import Image from "next/image";
 import {Badge} from "@/components/ui/badge";
 
-export default async function ProductPage({ params }: { params: { id: string } }) {
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
     const {id} = await params;
     const product: Product = await getProduct(Number(id));
 
