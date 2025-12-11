@@ -3,13 +3,14 @@ import {Product} from "@/components/shared/types";
 import {Card, CardContent, CardHeader, CardTitle, CardDescription} from "@/components/ui/card";
 import Image from "next/image";
 import {Badge} from "@/components/ui/badge";
+import {notFound} from "next/navigation";
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
     const {id} = await params;
-    const product: Product = await getProduct(Number(id));
+    const product: Product | null = await getProduct(Number(id));
 
     if (!product) {
-        return <p> Could not load product data. Please try again later </p>
+        notFound()
     }
 
     return (

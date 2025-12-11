@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 
-jest.mock("@/server/products", () => ({
+jest.mock("@/server/productsList", () => ({
     getProducts: jest.fn().mockResolvedValue([]),
 }));
 

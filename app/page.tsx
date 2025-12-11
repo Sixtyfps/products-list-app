@@ -1,8 +1,8 @@
-import {getProducts} from "@/server/products";
+import {getProductsList} from "@/server/productsList";
 import ProductsCatalog from "@/components/ui/products-catalog";
 
 export default async function Home() {
-    const products = await getProducts();
+    const products = await getProductsList();
 
     if (!products) {
         return <p> Could not load products data. Please try again later</p>

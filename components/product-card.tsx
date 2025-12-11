@@ -12,7 +12,7 @@ type ProductCardProps = {
 
 const ProductCard = ({product}: ProductCardProps) => {
     return (
-        <Link href={`/${product.id}`}>
+        <Link href={`/products/${product.id}`}>
             <Card key={product.id} className="p-3 h-full flex flex-col">
                 <CardHeader className="relative">
                     <Badge className="absolute top-0 left-2">{product.category}</Badge>

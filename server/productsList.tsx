@@ -2,7 +2,7 @@
 
 import {Product} from "@/components/shared/types";
 
-export async function getProducts(): Promise<Product[]> {
+export async function getProductsList(): Promise<Product[]> {
     try {
         const res = await fetch("https://fakestoreapi.com/products");
         return await res.json();
